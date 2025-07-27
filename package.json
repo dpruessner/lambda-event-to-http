@@ -14,6 +14,7 @@
   },
   "files": [
     "dist",
+    "src",
     "README.md",
     "LICENSE"
   ],
@@ -21,7 +22,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "dev": "tsup src/index.ts --format cjs,esm --dts --clean --watch",
     "prepare": "npm run build",
-    "postinstall": "npm run build",
+    "postinstall": "node -e \"if (!require('fs').existsSync('dist/index.js')) require('child_process').execSync('npm run build', {stdio: 'inherit'})\"",
     "prepublishOnly": "npm run build",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
