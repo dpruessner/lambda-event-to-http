@@ -1,0 +1,73 @@
+{
+  "name": "lambda-event-to-http",
+  "version": "0.1.0",
+  "description": "AWS Lambda compatibility layer for NodeJS HTTP Request and Response objects, allowing compatibility with NodeJS Frameworks like Express.js or NextJS",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "lambda",
+    "aws",
+    "api-gateway",
+    "serverless",
+    "middleware",
+    "adapter",
+    "compatibility",
+    "nodejs",
+    "node:http"
+  ],
+  "author": "Daniel Pruessner <daniel@vcx.bz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpruessner/lambda-event-to-http.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dpruessner/lambda-event-to-http/issues"
+  },
+  "homepage": "https://github.com/dpruessner/lambda-event-to-http#readme",
+  "devDependencies": {
+    "@jest/globals": "^30.0.4",
+    "@types/aws-lambda": "^8.10.152",
+    "@types/debug": "^4.1.12",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.19.9",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "jest": "^30.0.0",
+    "merge-descriptors": "^2.0.0",
+    "ts-jest": "^29.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependenciesMeta": {},
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "debug": "^4.4.1"
+  }
+}
